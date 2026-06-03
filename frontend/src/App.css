@@ -58,16 +58,33 @@
 
 #center {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 150px;
+  padding: 40px 102px 32px;
   flex-grow: 1;
 
   @media (max-width: 1024px) {
     padding: 32px 20px 24px;
     gap: 18px;
   }
+}
+
+#header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap : 12px;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.intro-text {
+  font-size: 18px;
+}
+#intro-text h2,#intro-text p {
+    text-align: left;
 }
 
 #next-steps {
