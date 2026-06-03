@@ -9,25 +9,25 @@ function App() {
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <section id="header">
+        <div id="intro">
+          <h1>Tharagan</h1>
+          <h3>Software Engineer</h3>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+        <div id="center">
+          <div id="intro-text">
+            <h2>Introduction</h2>
+            <p>
+              Apassionate and enthusiastic software engineer with hands-on internship experience in real-world software
+development. Skilled in designing, developing, and maintaining software solutions with a strong foundation in
+programming, problem-solving, and collaborative teamwork. Eagerto contribute to innovative projects, learn
+from experienced professionals, and grow as a full-stack or backend developerin a dynamic tech environment.
+            </p>
+          </div>
+          <div className="hero">
+            <img src={heroImg} className="base" width="170" height="179" alt="" />
+          </div>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
 
       <div className="ticks"></div>
