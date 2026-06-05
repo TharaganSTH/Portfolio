@@ -35,3 +35,66 @@
     text-align: left;
 }
 
+#skills {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+}
+.skill {
+  background: var(--skill-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+}
+.project {
+  background: var(--project-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.project h3 {
+  margin: 0 0 8px;
+} 
+.project p {
+  margin: 0;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-item a {
+  color: var(--link);
+  text-decoration: none;
+}
+.contact-item a:hover {  text-decoration: underline;
+} 
+
