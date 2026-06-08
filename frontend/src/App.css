@@ -4,6 +4,17 @@
   position: relative;
 }
 
+#header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap : 8px;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  padding: 20px 0px;
+}
+
 #center {
   display: flex;
   flex-direction: row;
@@ -18,15 +29,7 @@
   }
 }
 
-#header {
-  background: var(--header-bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  gap : 12px;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 100px;
-}
+
 
 .intro-text {
   font-size: 18px;
@@ -38,7 +41,8 @@
 #skills {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+  padding: 20px 0px;
 }
 #skills-list {
   display: flex;
@@ -58,7 +62,8 @@
 #projects {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+  padding: 20px 0px;
 }
 #projects-list {
   display: flex;
@@ -84,17 +89,19 @@
 #contact {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-.contact-item {
-  display: flex;
-  align-items: center;
   gap: 8px;
+  padding: 20px 0px;
 }
-.contact-item a {
-  color: var(--link);
-  text-decoration: none;
-}
-.contact-item a:hover {  text-decoration: underline;
-} 
 
+
+#footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+#footer-content {
+  margin: 0;
+  font-size: 14px;
+}
