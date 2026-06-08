@@ -38,6 +38,31 @@
     text-align: left;
 }
 
+#resume {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 20px 0px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+  background-color: #0051a2;
+}
+
+
+
+
 #skills {
   display: flex;
   flex-direction: column;
