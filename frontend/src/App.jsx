@@ -18,9 +18,9 @@ function App() {
             <h2>Introduction</h2>
             <p>
               Apassionate and enthusiastic software engineer with hands-on internship experience in real-world software
-development. Skilled in designing, developing, and maintaining software solutions with a strong foundation in
-programming, problem-solving, and collaborative teamwork. Eagerto contribute to innovative projects, learn
-from experienced professionals, and grow as a full-stack or backend developerin a dynamic tech environment.
+              development. Skilled in designing, developing, and maintaining software solutions with a strong foundation in
+              programming, problem-solving, and collaborative teamwork. Eagerto contribute to innovative projects, learn
+              from experienced professionals, and grow as a full-stack or backend developerin a dynamic tech environment.
             </p>
           </div>
           <div className="hero">
@@ -92,6 +92,12 @@ from experienced professionals, and grow as a full-stack or backend developerin 
         <p>Email:example@gmail.com</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/tharagan/">https://www.linkedin.com/in/tharagan/</a></p>
         <p>GitHub: <a href="https://github.com/tharagan">https://github.com/tharagan</a></p>
+      </section>
+
+      <section id="footer"> 
+        <footer id="footer-content">
+          <p>&copy; 2024 Tharagan. All rights reserved.</p>
+        </footer>
       </section>
     </>
   )
