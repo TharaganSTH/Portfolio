@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import resumefile from './assets/manual.pdf'
 
 function App() {
 
@@ -22,6 +23,15 @@ function App() {
               programming, problem-solving, and collaborative teamwork. Eagerto contribute to innovative projects, learn
               from experienced professionals, and grow as a full-stack or backend developerin a dynamic tech environment.
             </p>
+            <div id = "resume">
+              <a 
+                href="./assets/manual.pdf"
+                download="Tharagan_Resume.pdf"
+                className="download-btn"
+              >
+                Download Resume (PDF)
+              </a>
+            </div>
           </div>
           <div className="hero">
             <img src={heroImg} className="base" width="170" height="179" alt="" />
