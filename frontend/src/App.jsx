@@ -6,17 +6,35 @@ import './App.css'
 
 
 function App() {
+  const [activeSection, setActiveSection] = useState('header')
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section')
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, { threshold: 0.5 })
+
+    sections.forEach(section => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
 
   return (
     <>
 
       <section id="navbar">
         <nav>
-          <ul className='nav-link'>
-            <li><a href="#header">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul>
+            <li className={`nav-link ${activeSection === 'header' ? 'active' : ''}`}><a href="#header">Home</a></li>
+            <li className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}><a href="#skills">Skills</a></li>
+            <li className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}><a href="#projects">Projects</a></li>
+            <li className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </section>
