@@ -130,3 +130,27 @@
   margin: 0;
   font-size: 14px;
 }
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 12px 0px;
+}
+.nav-link {
+  color: var(--text);
+  display: flex;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+  transition: color 0.2s;
+  list-style: none;
+}
+.nav-link:hover {
+  color: var(--accent);
+}

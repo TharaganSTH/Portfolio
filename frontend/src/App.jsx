@@ -9,6 +9,18 @@ function App() {
 
   return (
     <>
+
+      <section id="navbar">
+        <nav>
+          <ul className='nav-link'>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </section>
+
       <section id="header">
         <div id="intro">
           <h1>Tharagan</h1>
