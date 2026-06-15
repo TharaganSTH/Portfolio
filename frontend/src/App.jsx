@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -17,7 +17,7 @@ function App() {
           setActiveSection(entry.target.id)
         }
       })
-    }, { threshold: 0.5 })
+    }, { threshold: 0.5})
 
     sections.forEach(section => observer.observe(section))
 
@@ -48,14 +48,16 @@ function App() {
           <div id="intro-text">
             <h2>Introduction</h2>
             <p>
-              Apassionate and enthusiastic software engineer with hands-on internship experience in real-world software
-              development. Skilled in designing, developing, and maintaining software solutions with a strong foundation in
-              programming, problem-solving, and collaborative teamwork. Eagerto contribute to innovative projects, learn
-              from experienced professionals, and grow as a full-stack or backend developerin a dynamic tech environment.
+              A passionate and enthusiastic Software Engineer with hands-on experience
+              in software development through multiple industry internships. Skilled in
+              React.js, JavaScript, Python, Java, API integration, and database
+              management. Experienced in building web applications, IoT solutions, and
+              AI-powered systems. Eager to contribute to innovative projects and grow
+              as a full-stack or backend developer.
             </p>
             <div id = "resume">
               <a 
-                href="/manual.pdf"
+                href="/Tharagan-Sivanesathurai-Resume.pdf"
                 download="Tharagan_Resume.pdf"
                 className="download-btn"
               >
@@ -70,7 +72,7 @@ function App() {
       </section>
 
 
-      <section id="skills">
+      {/* <section id="skills">
         <h2>Skills</h2>
         <div id="skills-list">
           <div className="skill">
@@ -101,9 +103,64 @@ function App() {
             </ul>
           </div>
         </div>
+      </section> */}
+
+      <section id="skills">
+        <h2>Skills</h2>
+
+        <div id="skills-list">
+          <div className="skill">
+            <h3>Programming Languages</h3>
+            <ul>
+              <li>JavaScript</li>
+              <li>Python</li> 
+              <li>Java</li>
+              <li>C++</li>
+            </ul>
+          </div>
+
+          <div className="skill">
+            <h3>Frontend Technologies</h3>
+            <ul>
+              <li>React.js</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+            </ul>
+          </div>
+
+          <div className="skill">
+            <h3>Backend & Database</h3>
+            <ul>
+              <li>MySQL</li>
+              <li>FastAPI</li>
+              <li>API Development & Integration</li>
+              <li>Object-Oriented Programming (OOP)</li>
+            </ul>
+          </div>
+
+          <div className="skill">
+            <h3>Tools</h3>
+            <ul>
+              <li>GitHub</li>
+              <li>Version Control</li>
+              <li>WordPress</li>
+            </ul>
+          </div>
+
+          <div className="skill">
+            <h3>Soft Skills</h3>
+            <ul>
+              <li>Communication</li>
+              <li>Problem Solving</li>
+              <li>Teamwork</li>
+              <li>Quick Learning</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <section id="projects">
+      {/* <section id="projects">
         <h2>Projects</h2>
         <div id="projects-list">
           <div className="project">
@@ -125,14 +182,104 @@ function App() {
             </p>
           </div>
         </div>
-      </section>  
+      </section>   */}
 
-      <section id="contact">  
+      <section id="projects">
+        <h2>Projects</h2>
+
+        <div id="projects-list">
+
+          <div className="project">
+            <h3>Disease NER & Synonym Generalization</h3>
+            <p>
+              Final year project focused on improving disease Named Entity Recognition
+              using BioBERT and contrastive learning. Developed a browser extension
+              capable of real-time biomedical text understanding using BC5CDR and
+              NCBI Disease datasets.
+            </p>
+          </div>
+
+          <div className="project">
+            <h3>Excel Sheet Format Converter</h3>
+            <p>
+              Developed a Java application for Rockland Distilleries that converts and
+              standardizes Excel sheet formats. Utilized Apache POI to automate
+              formatting and improve efficiency when handling large Excel files.
+            </p>
+          </div>
+
+          <div className="project">
+            <h3>Baby Eye Tracking System</h3>
+            <p>
+              Group software development project using machine learning techniques
+              to monitor infant eye movements through screen-based visual stimuli
+              for early vision issue detection.
+            </p>
+          </div>
+
+          <div className="project">
+            <h3>Raspberry Pi Sensor Data Logger</h3>
+            <p>
+              Built an IoT solution using Raspberry Pi Pico W and BME280 sensors
+              to collect temperature, humidity, and pressure data. Logged readings
+              to Google Sheets and displayed data through a local web server.
+            </p>
+          </div>
+
+          <div className="project">
+            <h3>Directed Graph Cycle Detection Algorithm</h3>
+            <p>
+              Developed a Java program to determine whether a directed graph is
+              acyclic using sink elimination and custom graph data structures.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* <section id="contact">  
         <h2>Contact</h2>
         <p>Email:example@gmail.com</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/tharagan/">https://www.linkedin.com/in/tharagan/</a></p>
         <p>GitHub: <a href="https://github.com/tharagan">https://github.com/tharagan</a></p>
+      </section> */}
+
+      <section id="contact">
+        <h2>Contact</h2>
+
+        <p>
+          Email:
+          <a href="mailto:tharagan05@gmail.com">
+            tharagan05@gmail.com
+          </a>
+        </p>
+
+        <p>
+          LinkedIn:
+          <a
+            href="https://linkedin.com/in/tharagan-sivanesathurai"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/tharagan-sivanesathurai
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/TharaganSTH"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/TharaganSTH
+          </a>
+        </p>
+
+        <p>Location: Colombo, Sri Lanka</p>
       </section>
+
+
 
       <section id="footer"> 
         <footer id="footer-content">
