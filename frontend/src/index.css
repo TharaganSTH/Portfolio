@@ -53,6 +53,9 @@
 body {
   margin: 0;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 #root {
   width: 1126px;
