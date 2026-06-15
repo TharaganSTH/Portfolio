@@ -1,4 +1,4 @@
-
+/* 
 
 .hero {
   position: relative;
@@ -29,9 +29,19 @@
   }
 }
 
+#intro{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+}
+#intro h3, #intro h1{
+  margin : 0;
+  padding: 10px 0;
+}
 
-
-.intro-text {
+#intro-text {
   font-size: 18px;
 }
 #intro-text h2,#intro-text p {
@@ -72,16 +82,38 @@
 #skills-list {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   gap: 12px;
   justify-content: center;
 }
+#first-row{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+#second-row{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+#second-row .skill{
+  width: 32%;
+}
 .skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   background: var(--skill-bg);
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 8px 12px;
   font-size: 14px;
+}
+.skill ul {
+  list-style: none;
+  padding:0;
+  margin:0;
 }
 
 #projects {
@@ -137,31 +169,466 @@
   left: 0;
   width: 100%;
   background: var(--navbar-bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
   align-items: center;
   padding: 12px 0px;
 }
 
+#navbar nav{
+  grid-column:  6/8;
+}
+
 #navbar ul {
+  justify-self: start;
   display: flex;
-  gap: 12px;
-  margin: 0;
+  gap: 40px;
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
-.nav-link :a {
-  color:rgb(0, 149, 255);
+.nav-link a {
+  color: #2c68a3;
   text-decoration: none;
-  margin: 0 12px;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 .nav-link a:hover {
-  color: #0051a2;
+  color:rgb(0, 149, 255);
 }
 .nav-link.active a {
   color:rgb(163, 33, 245);
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500;700&display=swap");
+
+/* :root {
+  --bg: #f4f2ed;
+  --text: #181814;
+  --muted: #77776f;
+  --border: #ddd9d0;
+  --card-bg: #f4f2ed;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    #eef6fb 0%,
+    #f8fcff 100%
+  );
+
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 52px;
+  z-index: 1000;
+
+  background: rgba(248, 252, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+#navbar ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-link a {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-link a:hover{
+   color: var(--primary);
+}
+.nav-link.active a {
+  color: var(--accent-dark);
+}
+
+#header {
+  min-height: 100vh;
+  padding: 120px 80px 72px;
+  border-bottom: 1px solid var(--border);
+}
+
+
+.hero-img{
+  border-radius: 12px;
+
+  border: 2px solid #d7eaf7;
+
+  box-shadow:
+    0 15px 30px rgba(2, 136, 209, 0.15);
+}
+
+
+
+#intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.section-label::before {
+  content: "— ";
+}
+
+#intro h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 76px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+#intro h3 {
+  color: var(--muted);
+  font-size: 18px;
+  margin-top: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#center {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  padding: 10px 80px;
+
+}
+
+#intro-text h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+#intro-text p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+  text-align: left;
+}
+
+.intro-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0 0 24px;
+  color: var(--text-h);
+}
+
+#intro-text {
+  text-align: left;
+}
+
+
+.download-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 30px;
+  background: var(--text);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--accent)
+  );
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-hover),
+    var(--accent-dark)
+  );
+
+  box-shadow:
+    0 12px 24px rgba(13, 110, 253, 0.3);
+}
+
+
+.photo-wrap {
+  position: relative;
+  width: 320px;
+  height: 400px;
+  margin: 0 auto;
+  margin-left: 40%;
+
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--border);
+  border-style: solid;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.br-tl {
+  top: -10px;
+  left: -10px;
+  border-width: 2px 0 0 2px;
+}
+
+.br-tr {
+  top: -10px;
+  right: -10px;
+  border-width: 2px 2px 0 0;
+}
+
+.br-bl {
+  bottom: -10px;
+  left: -10px;
+  border-width: 0 0 2px 2px;
+}
+
+.br-br {
+  bottom: -10px;
+  right: -10px;
+  border-width: 0 2px 2px 0;
+}
+
+.section {
+  padding: 72px 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+#skills-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.skill {
+  grid-column: span 2;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 32px;
+  min-height: 190px;
+  text-align: center;
+}
+
+.skill:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.skill:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.skill h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.skill ul {
+  list-style: none;
+}
+
+.skill li {
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#projects-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.project {
+  border: 1px solid var(--border);
+  padding: 32px;
+  text-align: center;
+}
+
+.project h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.project p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+
+
+.skill,
+.project {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 4px 12px rgba(15, 41, 64, 0.05);
+}
+
+.skill:hover,
+.project:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 24px rgba(15, 41, 64, 0.08);
+
+  border-color: var(--accent);
+}
+
+
+
+
+
+.contact-box {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 2;
+}
+
+.contact-box a {
+  color: var(--text);
+}
+
+#footer {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  #navbar {
+    padding: 0 20px;
+  }
+
+  #center {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  #intro-text h2,
+  #intro-text p {
+    text-align: center;
+  }
+
+  #skills-list {
+    grid-template-columns: 1fr;
+  }
+
+  .skill,
+  .skill:nth-child(4),
+  .skill:nth-child(5) {
+    grid-column: auto;
+  }
+
+  #header,
+  .section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  #intro h1 {
+    font-size: 52px;
+  }
+
+  .photo-wrap {
+    width: 260px;
+    height: 330px;
+  }
 }
