@@ -22,13 +22,19 @@ function Header() {
             backend developer.
           </p>
 
-          <a
-            href="/Tharagan-Sivanesathurai-Resume.pdf"
-            download="Tharagan_Resume.pdf"
-            className="download-btn"
-          >
-            Download Resume
-          </a>
+
+          <div className="hero-buttons">
+            <a
+                href="/Tharagan-Sivanesathurai-Resume.pdf"
+                download="Tharagan_Resume.pdf"
+                className="download-btn"
+            >
+                Download Resume
+            </a>
+            <a href="#projects" className="secondary-btn">View Projects</a>
+          </div>
+
+
         </div>
 
         <div className="photo-wrap">
