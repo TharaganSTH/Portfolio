@@ -42,6 +42,15 @@ function Projects() {
                     <span key={tag}>{tag}</span>
                 ))}
             </div>
+            <div className="project-actions">
+                <a href="#" className="project-btn">
+                    View Code
+                </a>
+
+                <a href="#" className="project-btn secondary">
+                    Live Demo
+                </a>
+            </div>
           </div>
         ))}
       </div>

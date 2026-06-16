@@ -711,6 +711,40 @@ section {
   font-weight: 700;
   letter-spacing: 1px;
 }
+.project-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.project-btn {
+  padding: 9px 18px;
+  background: var(--accent-dark);
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+.project-btn:hover {
+  transform: translateY(-2px);
+  background: var(--primary);
+}
+
+.project-btn.secondary {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+}
+
+.project-btn.secondary:hover {
+  background: rgba(51, 181, 255, 0.12);
+}
 
 /* =========================
    EXPERIENCE TIMELINE
