@@ -308,35 +308,106 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+import Activities from "./components/Activities";
 
 function App() {
   const [activeSection, setActiveSection] = useState("header");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // useEffect(() => {
+  //   const sections = document.querySelectorAll("section[id]");
+
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setActiveSection(entry.target.id);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.45 }
+  //   );
+
+  //   sections.forEach((section) => observer.observe(section));
+
+  //   return () => observer.disconnect();
+  // }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleSections.length > 0) {
+          setActiveSection(visibleSections[0].target.id);
+        }
       },
-      { threshold: 0.45 }
+      {
+        root: null,
+        threshold: [0.2, 0.4, 0.6],
+        rootMargin: "-80px 0px -40% 0px",
+      }
     );
 
     sections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect();
+
+    const revealElements = document.querySelectorAll(
+      ".section, .skill, .project, .timeline-card, .education-card, .activity-card"
+    );
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+
+    // return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      revealObserver.disconnect();
+    };
   }, []);
 
   return (
     <>
+      {loading && (
+        <div id="opening-loader">
+          <div className="loader-content">
+            <p>— Portfolio —</p>
+            <h1>Tharagan Sivanesathurai</h1>
+            <span>Software Engineer</span>
+          </div>
+        </div>
+      )}
       <Navbar activeSection={activeSection} />
       <Header />
       <Skills />
       <Projects />
+      <Experience />
+      <Education />
+      <Activities />
       <Contact />
       <Footer />
     </>
