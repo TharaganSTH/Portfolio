@@ -4,7 +4,7 @@ function Header() {
   return (
     <section id="header">
       <div id="intro">
-        <p className="section-label">Portfolio — 2025</p>
+        <p className="section-label">Portfolio —</p>
         <h3>Software Engineer</h3>
       </div>
 
@@ -38,6 +38,7 @@ function Header() {
           <span className="bracket br-br"></span>
 
           <img src={heroImg} className="hero-img" alt="Tharagan Sivanesathurai" />
+          <p>Hold to reveal dev mode</p>
         </div>
       </div>
     </section>
