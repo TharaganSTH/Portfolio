@@ -453,6 +453,7 @@ function App() {
       )}
       <Navbar activeSection={activeSection} />
       <Header />
+      <CareerProfile />
       <Skills />
       <Projects />
       <Experience />
