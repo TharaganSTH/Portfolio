@@ -343,28 +343,74 @@ function App() {
   //   return () => observer.disconnect();
   // }, []);
 
+  // useEffect(() => {
+  //   const sections = document.querySelectorAll("section[id]");
+
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       const visibleSections = entries
+  //         .filter((entry) => entry.isIntersecting)
+  //         .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+  //       if (visibleSections.length > 0) {
+  //         setActiveSection(visibleSections[0].target.id);
+  //       }
+  //     },
+  //     {
+  //       root: null,
+  //       threshold: [0.2, 0.4, 0.6],
+  //       rootMargin: "-80px 0px -40% 0px",
+  //     }
+  //   );
+
+  //   sections.forEach((section) => observer.observe(section));
+
+
+  //   const revealElements = document.querySelectorAll(
+  //     ".section, .skill, .project, .timeline-card, .education-card, .activity-card"
+  //   );
+
+  //   const revealObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("reveal-visible");
+  //         }
+  //       });
+  //     },
+  //     { rootMargin: "-30% 0px -60% 0px",threshold: 0}
+  //   );
+
+  //   revealElements.forEach((el) => revealObserver.observe(el));
+
+  //   // return () => observer.disconnect();
+  //   return () => {
+  //     observer.disconnect();
+  //     revealObserver.disconnect();
+  //   };
+  // }, []);
+
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+      const checkLine = window.innerHeight * 0.35;
 
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
+      let currentSection = "header";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= checkLine && rect.bottom >= checkLine) {
+          currentSection = section.id;
         }
-      },
-      {
-        root: null,
-        threshold: [0.2, 0.4, 0.6],
-        rootMargin: "-80px 0px -40% 0px",
-      }
-    );
+      });
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveSection(currentSection);
+    };
 
+    window.addEventListener("scroll", updateActiveSection);
+    updateActiveSection();
 
     const revealElements = document.querySelectorAll(
       ".section, .skill, .project, .timeline-card, .education-card, .activity-card"
@@ -378,14 +424,18 @@ function App() {
           }
         });
       },
-      { threshold: 0.15 }
+      {
+        // rootMargin: "-30% 0px -60% 0px",
+        // threshold: 0,
+        rootMargin: "0px",
+        threshold: 0.05
+      }
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
 
-    // return () => observer.disconnect();
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
       revealObserver.disconnect();
     };
   }, []);
