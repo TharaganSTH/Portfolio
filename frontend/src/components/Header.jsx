@@ -4,7 +4,7 @@ function Header() {
   return (
     <section id="header">
       <div id="intro">
-        <p className="section-label">Portfolio —</p>
+        <p className="section-label">Portfolio</p>
         <h3>Software Engineer</h3>
       </div>
 
