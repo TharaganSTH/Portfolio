@@ -311,6 +311,8 @@ import Footer from "./components/Footer";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Activities from "./components/Activities";
+import CareerProfile from "./components/CareerProfile";
+import CurrentlyLearning from "./components/CurrentlyLearning"
 
 function App() {
   const [activeSection, setActiveSection] = useState("header");
@@ -343,29 +345,159 @@ function App() {
   //   return () => observer.disconnect();
   // }, []);
 
+  // useEffect(() => {
+  //   const sections = document.querySelectorAll("section[id]");
+
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       const visibleSections = entries
+  //         .filter((entry) => entry.isIntersecting)
+  //         .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+  //       if (visibleSections.length > 0) {
+  //         setActiveSection(visibleSections[0].target.id);
+  //       }
+  //     },
+  //     {
+  //       root: null,
+  //       threshold: [0.2, 0.4, 0.6],
+  //       rootMargin: "-80px 0px -40% 0px",
+  //     }
+  //   );
+
+  //   sections.forEach((section) => observer.observe(section));
+
+
+  //   const revealElements = document.querySelectorAll(
+  //     ".section, .skill, .project, .timeline-card, .education-card, .activity-card"
+  //   );
+
+  //   const revealObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("reveal-visible");
+  //         }
+  //       });
+  //     },
+  //     { rootMargin: "-30% 0px -60% 0px",threshold: 0}
+  //   );
+
+  //   revealElements.forEach((el) => revealObserver.observe(el));
+
+  //   // return () => observer.disconnect();
+  //   return () => {
+  //     observer.disconnect();
+  //     revealObserver.disconnect();
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   const sections = document.querySelectorAll("section[id]");
+
+  //   const updateActiveSection = () => {
+  //     const checkLine = window.innerHeight * 0.4;
+
+  //     let currentSection = "header";
+
+  //     sections.forEach((section) => {
+  //       const rect = section.getBoundingClientRect();
+
+  //       if (rect.top <= checkLine && rect.bottom >= checkLine) {
+  //         currentSection = section.id;
+  //       }
+  //     });
+
+  //     setActiveSection(currentSection);
+  //   };
+
+  //   window.addEventListener("scroll", updateActiveSection);
+  //   updateActiveSection();
+
+  //   const revealElements = document.querySelectorAll(
+  //     ".section, .skill, .project, .timeline-card, .education-card, .activity-card"
+  //   );
+
+  //   const revealObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("reveal-visible");
+  //         }
+  //       });
+  //     },
+  //     {
+  //       // rootMargin: "-30% 0px -60% 0px",
+  //       // threshold: 0,
+  //       rootMargin: "0px 0px -15% 0px",
+  //       threshold: 0.05
+  //     }
+  //   );
+
+  //   revealElements.forEach((el) => revealObserver.observe(el));
+
+  //   return () => {
+  //     window.removeEventListener("scroll", updateActiveSection);
+  //     revealObserver.disconnect();
+  //   };
+  // }, []);
+
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    // -----------------------------
+    // Active Navbar Highlight
+    // -----------------------------
+    const updateActiveSection = () => {
+      const checkLine = window.innerHeight * 0.4;
 
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
+      let currentSection = "header";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= checkLine && rect.bottom >= checkLine) {
+          currentSection = section.id;
         }
-      },
-      {
-        root: null,
-        threshold: [0.2, 0.4, 0.6],
-        rootMargin: "-80px 0px -40% 0px",
-      }
-    );
+      });
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveSection(currentSection);
+    };
 
+    // -----------------------------
+    // Scroll Progress Bar
+    // -----------------------------
+    const updateScrollProgress = () => {
+      const progressBar = document.getElementById("scroll-progress");
 
+      if (!progressBar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress = (scrollTop / docHeight) * 100;
+
+      progressBar.style.width = `${progress}%`;
+    };
+
+    // -----------------------------
+    // Combined Scroll Handler
+    // -----------------------------
+    const handleScroll = () => {
+      updateActiveSection();
+      updateScrollProgress();
+    };
+
+    // Initial run
+    handleScroll();
+
+    // Scroll listener
+    window.addEventListener("scroll", handleScroll);
+
+    // -----------------------------
+    // Reveal Animation
+    // -----------------------------
     const revealElements = document.querySelectorAll(
       ".section, .skill, .project, .timeline-card, .education-card, .activity-card"
     );
@@ -378,14 +510,19 @@ function App() {
           }
         });
       },
-      { threshold: 0.15 }
+      {
+        rootMargin: "0px 0px -15% 0px",
+        threshold: 0.05,
+      }
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
 
-    // return () => observer.disconnect();
+    // -----------------------------
+    // Cleanup
+    // -----------------------------
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
       revealObserver.disconnect();
     };
   }, []);
@@ -401,8 +538,11 @@ function App() {
           </div>
         </div>
       )}
+      <div id="scroll-progress"></div>
       <Navbar activeSection={activeSection} />
       <Header />
+      <CareerProfile />
+      <CurrentlyLearning />
       <Skills />
       <Projects />
       <Experience />

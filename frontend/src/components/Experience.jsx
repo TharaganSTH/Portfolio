@@ -10,6 +10,7 @@ const experiences = [
       "Used GitHub for version control and team collaboration.",
       "Supported testing, bug fixing, and deployment preparation.",
     ],
+    tags: ["React", "FastAPI", "GitHub", "Testing"]
   },
   {
     role: "Implant Trainee",
@@ -21,6 +22,7 @@ const experiences = [
       "Maintained technical documentation using Microsoft Word.",
       "Managed version-controlled documentation and queries using GitHub.",
     ],
+    tags: ["React", "FastAPI", "GitHub", "Testing"]
   },
   {
     role: "Fullstack Developer",
@@ -32,6 +34,7 @@ const experiences = [
       "Worked on e-commerce features using WooCommerce.",
       "Created website reports and project plans for clients.",
     ],
+    tags: ["React", "FastAPI", "GitHub", "Testing"]
   },
 ];
 
@@ -57,6 +60,13 @@ function Experience() {
                 <li key={point}>{point}</li>
               ))}
             </ul>
+
+            <div className="experience-tags">
+            {exp.tags?.map((tag) => (
+                <span key={tag}>{tag}</span>
+            ))}
+            </div>
+
           </div>
         ))}
       </div>

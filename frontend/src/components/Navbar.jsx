@@ -36,6 +36,7 @@ import logo from "../assets/STH_SE_turbo_final_light.png";
 function Navbar({ activeSection }) {
   const links = [
     { id: "header", label: "Home" },
+    { id: "profile", label:"Profile"},
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
