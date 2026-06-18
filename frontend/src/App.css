@@ -285,13 +285,182 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg, #dcecf8 0%, #d4e9f8 100%);
+  background: linear-gradient(
+    180deg,
+    #dcecf8 0%,
+    #d4e9f8 100%
+  );
   color: var(--text);
   font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 section {
   scroll-margin-top: 80px;
+}
+
+/* =========================
+   BACKGROUND EFFECTS
+========================= */
+
+#header,
+#profile,
+#learning,
+#skills,
+#projects,
+#experience,
+#education,
+#activities,
+#contact {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header glow */
+#header::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  top: 120px;
+  right: -180px;
+  background: radial-gradient(
+    circle,
+    rgba(51, 181, 255, 0.22),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* Profile soft right glow */
+#profile::before {
+  content: "";
+  position: absolute;
+  width: 1300px;
+  height: 1300px;
+  right: -200px;
+  top: -500px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 136, 204, 0.16),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* Learning dot pattern */
+#learning::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(0, 136, 204, 0.18) 20px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Skills diagonal wash */
+#skills::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(51, 181, 255, 0.12),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+/* Projects center glow */
+#projects::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  left: 50%;
+  top: 160px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 136, 204, 0.12),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Education light wave */
+#education::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.22) 45%,
+      transparent 75%
+    );
+  pointer-events: none;
+}
+
+/* Contact top glow */
+#contact::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(51, 181, 255, 0.18),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+#header > *,
+#profile > *,
+#learning > *,
+#skills > *,
+#projects > *,
+#experience > *,
+#education > *,
+#activities > *,
+#contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   SCROLL BAR
+========================= */
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 3px;
+
+  z-index: 2000;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent)
+  );
+
+  box-shadow:
+    0 0 12px rgba(51,181,255,.35);
+
+  transition: width .08s linear;
 }
 
 /* =========================
@@ -508,6 +677,7 @@ section {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: 0.3s ease;
 }
 
 .hero-img {
@@ -534,6 +704,7 @@ section {
 
   width: 18px;
   height: 18px;
+  transition: 0.35s ease;
 
   border-color: var(--border);
   border-style: solid;
@@ -564,6 +735,52 @@ section {
   border-width: 0 2px 2px 0;
 }
 
+.photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  z-index: -1;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(51, 181, 255, 0.35),
+    rgba(255, 255, 255, 0.2)
+  );
+  filter: blur(18px);
+  opacity: 0.6;
+  transition: 0.4s ease;
+}
+
+.photo-wrap:hover::before {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.photo-wrap:hover .bracket {
+  border-color: var(--accent-dark);
+}
+
+.photo-wrap:hover .br-tl {
+  transform: translate(-4px, -4px);
+}
+
+.photo-wrap:hover .br-tr {
+  transform: translate(4px, -4px);
+}
+
+.photo-wrap:hover .br-bl {
+  transform: translate(-4px, 4px);
+}
+
+.photo-wrap:hover .br-br {
+  transform: translate(4px, 4px);
+}
+
+.photo-wrap:hover p {
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
 /* =========================
    SHARED SECTION STYLES
 ========================= */
@@ -580,20 +797,38 @@ section {
 }
 
 .section-label {
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
   color: var(--accent-dark);
-  font-size: 10px;
-  font-weight: 600;
+
+  font-size: 11px;
+  font-weight: 700;
+
   letter-spacing: 4px;
   text-transform: uppercase;
+
+  margin-bottom: 22px;
 }
 
-.section-label::before {
-  content: "— ";
-}
+.section-label::before,
+.section-label::after{
+    content:"";
 
-.section-label::after {
-  content: " —";
+    flex:1;
+
+    max-width:90px;
+
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--border),
+        transparent
+    );
 }
 
 /* =========================
@@ -651,6 +886,29 @@ section {
 
     color:var(--muted);
 
+}
+
+/* =========================
+   Currently learning
+========================= */
+
+.learning-list {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.learning-list span {
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* =========================
@@ -940,6 +1198,24 @@ section {
   white-space: nowrap;
 }
 
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.experience-tags span {
+  padding: 6px 11px;
+  background: rgba(51, 181, 255, 0.13);
+  color: var(--accent-dark);
+  border: 1px solid rgba(0, 136, 204, 0.18);
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
 /* =========================
    EDUCATION
 ========================= */
@@ -1052,11 +1328,62 @@ section {
 ========================= */
 
 #footer {
-  padding: 24px;
+  padding: 70px 24px 32px;
   text-align: center;
-  color: var(--muted);
-  background: var(--footer-bg);
+  background:
+    radial-gradient(circle at top center, rgba(51, 181, 255, 0.18), transparent 45%),
+    var(--footer-bg);
   border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-label {
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.footer-content h2 {
+  color: var(--text-h);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  font-weight: 300;
+  margin-bottom: 26px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.footer-links a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer-copy {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 /* =========================
@@ -1249,19 +1576,56 @@ section {
     font-size: 16px;
   }
 
-  #navbar {
+  .loader-content {
+    width: 90%;
     padding: 0 20px;
-    overflow-x: auto;
+  }
+
+  .loader-content h1 {
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  .loader-content p,
+  .loader-content span {
+    letter-spacing: 3px;
+  }
+
+  #navbar {
+    height:auto;
+
+    padding:14px 0px;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    align-items:center;
+
+    overflow: hidden;
   }
 
   #navbar ul {
-    gap: 20px;
     overflow-x: auto;
     white-space: nowrap;
+
+    width:100%;
+
+    display: flex;
+
+    justify-content:flex-start;
+
+    overflow-x:auto;
+
+    gap:26px;
+
+    padding: 0 22px 6px;
+    scroll-padding-left: 22px;
   }
 
   .nav-logo {
     flex-shrink: 0;
+    max-width:none;
   }
 
   #navbar::-webkit-scrollbar,
@@ -1314,5 +1678,34 @@ section {
 
   .contact-box {
     padding: 28px 18px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-list {
+    justify-content: center;
+  }
+
+  .project-actions {
+    flex-wrap: wrap;
+  }
+
+  .timeline-list::before {
+    left: 10px;
+  }
+
+  .timeline-card {
+    margin-left: 34px;
+  }
+
+  .timeline-card::before {
+    left: -33px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
