@@ -12,7 +12,7 @@ function CareerProfile() {
 
           <p>
             Software Engineering graduate with internship experience in web
-            development, AI applications, IoT solutions and business software.
+            development and business software.
             I enjoy solving real-world problems through clean, maintainable
             software.
           </p>
@@ -22,9 +22,8 @@ function CareerProfile() {
           <h3>Specialization</h3>
 
           <p>
-            Interested in Full-Stack and Backend development while expanding my
-            knowledge in cloud technologies, scalable architectures and AI
-            powered applications.
+            Currently focused on Full-Stack Development while continuously expanding 
+            my knowledge in Internet of Things (IoT), Machine Learning (ML), and cloud technologies.
           </p>
         </div>
 
