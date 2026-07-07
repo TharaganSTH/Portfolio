@@ -4,7 +4,7 @@ function CurrentlyLearning() {
     "JavaScript Deepening",
     "Backend APIs",
     "SQL & Databases",
-    "Clean Code",
+    "AI tools",
     "Software Engineering Best Practices",
   ];
 

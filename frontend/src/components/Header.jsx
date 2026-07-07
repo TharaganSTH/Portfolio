@@ -10,7 +10,7 @@ function Header() {
 
       <div id="center">
         <div id="intro-text">
-        <h1 className="intro-name">Tharagan<br />Sivanesathurai.</h1>
+          <h1 className="intro-name">Tharagan<br />Sivanesathurai.</h1>
 
           <p>
             A passionate and enthusiastic Software Engineer with hands-on
@@ -44,7 +44,7 @@ function Header() {
           <span className="bracket br-br"></span>
 
           <img src={heroImg} className="hero-img" alt="Tharagan Sivanesathurai" />
-          <p>Hold to reveal dev mode</p>
+          <p>_</p>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ const skills = [
   },
   {
     title: "Frontend Technologies",
-    items: ["React.js", "HTML", "CSS", "Bootstrap"],
+    items: ["React.js", "HTML", "CSS"],
   },
   {
     title: "Backend & Database",
