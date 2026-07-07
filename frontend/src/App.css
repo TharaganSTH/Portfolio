@@ -1645,6 +1645,7 @@ section {
   #intro-text,
   #intro-text p {
     text-align: center;
+    padding-left: 0;
   }
 
   #skills-list,
