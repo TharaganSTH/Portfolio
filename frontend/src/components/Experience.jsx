@@ -1,5 +1,17 @@
 const experiences = [
   {
+    role: "Implant Trainee",
+    company: "Rockland Distilleries (Pvt) Ltd",
+    date: "July 2023 – Jan 2024",
+    points: [
+      "Prepared daily, weekly, and monthly reports using Excel and Google Sheets.",
+      "Identified and corrected data inconsistencies using validation and basic MySQL queries.",
+      "Maintained technical documentation using Microsoft Word.",
+      "Managed version-controlled documentation and queries using GitHub.",
+    ],
+    tags: ["GitHub", "Testing", "Excel", "Word"]
+  },
+  {
     role: "Software Engineer Intern",
     company: "BrickBloc Developments (Pvt) Ltd",
     date: "Jan 2024 – Nov 2024",
@@ -13,18 +25,6 @@ const experiences = [
     tags: ["React", "FastAPI", "GitHub", "Testing"]
   },
   {
-    role: "Implant Trainee",
-    company: "Rockland Distilleries (Pvt) Ltd",
-    date: "July 2023 – Jan 2024",
-    points: [
-      "Prepared daily, weekly, and monthly reports using Excel and Google Sheets.",
-      "Identified and corrected data inconsistencies using validation and MySQL queries.",
-      "Maintained technical documentation using Microsoft Word.",
-      "Managed version-controlled documentation and queries using GitHub.",
-    ],
-    tags: ["React", "FastAPI", "GitHub", "Testing"]
-  },
-  {
     role: "Fullstack Developer",
     company: "AccuTech (Pvt) Ltd",
     date: "Nov 2025 – Apr 2026",
@@ -34,7 +34,7 @@ const experiences = [
       "Worked on e-commerce features using WooCommerce.",
       "Created website reports and project plans for clients.",
     ],
-    tags: ["React", "FastAPI", "GitHub", "Testing"]
+    tags: ["WordPress", "WooCommerce", "Javascript", "CSS", "Web Development"]
   },
 ];
 

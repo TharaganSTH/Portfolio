@@ -581,6 +581,8 @@ section {
   opacity: 0;
   animation: fadeRight 0.9s ease forwards;
   animation-delay: 0.25s;
+  margin : 0px auto;
+  padding-left: 12%;
 }
 
 .intro-name {
