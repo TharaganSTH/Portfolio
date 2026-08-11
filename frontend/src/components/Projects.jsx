@@ -3,115 +3,75 @@ const projects = [
     title: "Disease NER & Synonym Generalization",
     subtitle: "Final Year Research Project",
     problem: "Biomedical models struggle with unseen disease synonyms.",
-    solution: "Developed an end-to-end BioBERT system with synonym generalization and browser extension.",
+    solution: "Integrated BioBERT and contrastive learning into a unified model for disease NER and synonym generalization, deployed as a low-latency browser extension using the BC5CDR and NCBI Disease datasets.",
     tags: ["Python", "BioBERT", "NLP", "React"],
     links: [
-      {
-        label: "View Code",
-        url: "https://github.com/...",
-        style: "primary",
-      },
-      {
-        label: "Live Demo",
-        url: "https://...",
-        style: "primary",
-      }
+      // {
+      //   label: "View Code",
+      //   url: "https://github.com/...",
+      //   style: "primary",
+      // }
     ]
   },
+
+
   {
-    title: "Disease NER & Synonym Generalization",
-    subtitle: "Final Year Research Project",
-    problem: "Biomedical models struggle with unseen disease synonyms.",
-    solution: "Developed an end-to-end BioBERT system with synonym generalization and browser extension.",
-    tags: ["Python", "BioBERT", "NLP", "React"],
+    title: "Baby Eye Tracking System",
+    subtitle: "Software Development Group Project",
+    problem: "Vision-related issues in infants are hard to detect early without specialized clinical equipment.",
+    solution: "Built a machine learning-based application that tracks baby eye movements using screen-based visual stimuli, aimed at early detection of vision problems.",
+    tags: ["Machine Learning", "Python"],
     links: [
-      {
-        label: "View Code",
-        url: "https://github.com/...",
-        style: "primary",
-      },
-      {
-        label: "Live Demo",
-        url: "https://...",
-        style: "primary",
-      }
+      // {
+      //   label: "View Code",
+      //   url: "https://github.com/TharaganSTH",
+      //   style: "primary",
+      // }
     ]
   },
+
   {
-    title: "Disease NER & Synonym Generalization",
-    subtitle: "Final Year Research Project",
-    problem: "Biomedical models struggle with unseen disease synonyms.",
-    solution: "Developed an end-to-end BioBERT system with synonym generalization and browser extension.",
-    tags: ["Python", "BioBERT", "NLP", "React"],
+    title: "Raspberry Pi Sensor Data Logger",
+    subtitle: "Individual IoT Project",
+    problem: "Needed a way to continuously capture and visualize environmental readings without manual logging.",
+    solution: "Connected a BME280 sensor to a Raspberry Pi Pico W to collect temperature, humidity, and pressure data, with Python scripts to display readings, host a local web server, and log timestamped entries to Google Sheets.",
+    tags: ["Python", "IoT", "Raspberry Pi", "Google Sheets API"],
     links: [
-      {
-        label: "View Code",
-        url: "https://github.com/...",
-        style: "secondary",
-      },
-      {
-        label: "Live Demo",
-        url: "https://...",
-        style: "primary",
-      }
+      // {
+      //   label: "View Code",
+      //   url: "https://github.com/TharaganSTH",
+      //   style: "primary",
+      // }
     ]
   },
+
   {
-    title: "Disease NER & Synonym Generalization",
-    subtitle: "Final Year Research Project",
-    problem: "Biomedical models struggle with unseen disease synonyms.",
-    solution: "Developed an end-to-end BioBERT system with synonym generalization and browser extension.",
-    tags: ["Python", "BioBERT", "NLP", "React"],
+    title: "Excel Sheet Format Converter",
+    subtitle: "Individual Java Application",
+    problem: "Rockland needed large Excel files manually reformatted, which was slow and error-prone.",
+    solution: "Developed a Java application that converts and standardizes Excel sheet formats, automating data formatting using Apache POI to improve accuracy and reduce manual effort.",
+    tags: ["Java", "Apache POI"],
     links: [
-      {
-        label: "View Code",
-        url: "https://github.com/...",
-        style: "primary",
-      },
-      {
-        label: "Live Demo",
-        url: "https://...",
-        style: "primary",
-      }
+      // {
+      //   label: "View Code",
+      //   url: "https://github.com/TharaganSTH",
+      //   style: "primary",
+      // }
     ]
   },
+
   {
-    title: "Disease NER & Synonym Gralization",
-    subtitle: "Final Year Research Project",
-    problem: "Biomedical models struggle with unseen disease synonyms.",
-    solution: "Developed an end-to-end BioBERT system with synonym generalization and browser extension.",
-    tags: ["Python", "BioBERT", "NLP", "React"],
+    title: "Directed Graph Cycle Detector",
+    subtitle: "Algorithm Project",
+    problem: "Needed a reliable way to determine whether a directed graph is acyclic.",
+    solution: "Implemented a custom graph data structure and a sink elimination algorithm in Java, including input parsing and cycle detection for non-acyclic graphs.",
+    tags: ["Java", "Data Structures", "Algorithms"],
     links: [
-      {
-        label: "View Code",
-        url: "https://github.com/...",
-        style: "primary",
-      },
-      {
-        label: "Live Demo",
-        url: "https://...",
-        style: "primary",
-      },
-      {
-        label: "Documentation",
-        url: "https://...",
-        style: "secondary",
-      },
-      {
-        label: "More description",
-        url: "https://...",
-        style: "primary",
-      },
-      {
-        label: "this is for the test of the button",
-        url: "https://...",
-        style: "secondary",
-      },
-      {
-        label: "this is for the test of the button",
-        url: "https://...",
-        style: "primary",
-      }
+      // {
+      //   label: "View Code",
+      //   url: "https://github.com/TharaganSTH",
+      //   style: "primary",
+      // }
     ]
   },
 ];
